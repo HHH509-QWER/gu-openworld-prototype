@@ -1,0 +1,14 @@
+# Godot 4 自动生成的导入缓存，不需要进版本库
+.godot/
+
+# 导出产物
+export/
+build/
+*.exe
+*.pck
+*.zip
+
+# 系统垃圾
+Thumbs.db
+desktop.ini
+.DS_Store

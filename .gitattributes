@@ -1,0 +1,20 @@
+# 统一换行符：避免在 Windows / Mac / Linux 之间协作时
+# 出现「整个文件都被改了」的假 diff（其实只是 CRLF 和 LF 的区别）
+* text=auto
+
+*.gd     text
+*.tscn   text
+*.tres   text
+*.godot  text
+*.md     text
+*.cfg    text
+
+# 二进制文件不要动
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.webp  binary
+*.ogg   binary
+*.wav   binary
+*.ttf   binary
+*.otf   binary
