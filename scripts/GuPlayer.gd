@@ -6,7 +6,7 @@ extends Node2D
 ## 便于原型快速跑起来；背包／元石／蛊虫等真正有价值的资产全部由主机裁定（见 Game.gd）。
 
 const RADIUS := 13.0
-const BASE_SPEED := 232.0
+const BASE_SPEED := 800.0
 
 var game: Node = null
 var world: GuWorld = null

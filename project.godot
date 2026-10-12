@@ -1,5 +1,10 @@
-; 蛊真人 · 大世界开放原型
-; Godot 4.3 或更高版本
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
 
 config_version=5
 
@@ -8,7 +13,7 @@ config_version=5
 config/name="蛊真人·大世界（原型）"
 config/description="以《蛊真人》为背景的大世界探索 + 养蛊 + 自由交易 最小可玩原型"
 run/main_scene="res://scenes/Main.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.4", "GL Compatibility")
 
 [display]
 
