@@ -2,36 +2,35 @@
 cd /d "%~dp0"
 
 echo ==========================================
-echo   提交并上传到 GitHub
+echo   Commit and push to GitHub
 echo ==========================================
 echo.
-
-echo --- 这次改动的文件 ---
+echo --- Changed files ---
 git status --short
 echo.
 
 set "MSG="
-set /p "MSG=提交说明（直接回车 = 用时间戳）: "
-if "%MSG%"=="" set "MSG=更新 %DATE% %TIME%"
+set /p "MSG=Message (blank = timestamp): "
+if "%MSG%"=="" set "MSG=update %DATE% %TIME%"
 
 echo.
-echo --- 正在提交 ---
+echo --- Committing ---
 git add .
 git commit -m "%MSG%"
 if errorlevel 1 (
   echo.
-  echo [跳过] 没有需要提交的改动，或者提交失败。
+  echo [SKIP] Nothing to commit, or commit failed.
   echo.
   pause
   exit /b 1
 )
 
 echo.
-echo --- 正在上传到 GitHub ---
+echo --- Pushing to GitHub ---
 git push
 if errorlevel 1 (
   echo.
-  echo [失败] 上传失败。可能是网络问题，稍后再试一次。
+  echo [FAIL] Push failed. Check network and try again.
   echo.
   pause
   exit /b 1
@@ -39,7 +38,7 @@ if errorlevel 1 (
 
 echo.
 echo ==========================================
-echo   [成功] 已上传
+echo   [OK] Pushed
 echo   https://github.com/HHH509-QWER/gu-openworld-prototype
 echo ==========================================
 echo.

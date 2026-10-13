@@ -2,21 +2,21 @@
 cd /d "%~dp0"
 
 echo ==========================================
-echo   撤销所有未提交的改动
+echo   DISCARD uncommitted changes
 echo ==========================================
 echo.
-echo 这会把你改过但还没提交的内容全部丢掉，
-echo 恢复到上一次提交时的样子。
+echo This throws away everything you changed but
+echo did not commit, restoring the last commit.
 echo.
-echo --- 即将被丢弃的改动 ---
+echo --- Files that WILL be restored ---
 git status --short
 echo.
 
 set "OK="
-set /p "OK=确定要撤销吗？输入 y 确认，其他键取消: "
+set /p "OK=Type y to confirm, anything else cancels: "
 if /i not "%OK%"=="y" (
   echo.
-  echo 已取消，什么都没做。
+  echo Cancelled. Nothing was changed.
   echo.
   pause
   exit /b 0
@@ -24,8 +24,10 @@ if /i not "%OK%"=="y" (
 
 git checkout .
 echo.
-echo ==========================================
-echo   [完成] 已恢复到上次提交的状态
-echo ==========================================
+echo [OK] Modified files restored to the last commit.
+echo.
+echo NOTE: brand-new files (shown as ?? above) are NOT
+echo deleted on purpose, so you do not lose work you
+echo meant to keep. Delete them by hand if unwanted.
 echo.
 pause
