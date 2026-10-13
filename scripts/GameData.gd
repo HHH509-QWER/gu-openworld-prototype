@@ -14,7 +14,7 @@ const MAP := 84                    # 世界为 MAP × MAP 格
 const CELL := 48                   # 每格像素
 const WORLD_PX := MAP * CELL
 const BEAST_COUNT := 16
-const STARTER_STONES := 150
+const STARTER_STONES := 99999
 const GATHER_RANGE := 90.0         # 采集判定距离
 const TRADE_RANGE := 160.0         # 交易判定距离
 
