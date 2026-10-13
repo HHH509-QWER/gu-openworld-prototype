@@ -63,7 +63,7 @@ godot --headless --path <工程目录> --quit-after 300 -- --solo
 ```
 
 会无头跑完整条逻辑链路并逐项打印 PASS/FAIL，**全部通过退出码 0，有失败退出码 1**，可以直接接进 CI。
-当前覆盖 45 项断言：
+当前覆盖的断言分组：
 
 | 组 | 覆盖内容 |
 | --- | --- |
@@ -140,7 +140,7 @@ scripts/
 | --- | --- | --- |
 | 全部脚本解析 | `--headless --import` | 无 SCRIPT ERROR |
 | 单机跑 300 帧 | `--quit-after 300 -- --solo` | 无运行时报错 |
-| 完整逻辑链路 45 项断言 | `--quit-after 600 -- --selftest` | **45/45 通过，退出码 0** |
+| 完整逻辑链路 47 项断言 | `--quit-after 600 -- --selftest` | **47/47 通过，退出码 0** |
 | 局域网 RPC 管道 | 两个 headless 进程：`--host` + `--join=127.0.0.1` | 连接、玩家同步出生、背包下发、断线清理全部正常 |
 
 ### 网络模型：主机权威（Host-Authoritative）
