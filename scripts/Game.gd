@@ -1033,7 +1033,12 @@ func _kill_beast(idx: int) -> void:
 		_srv_to(killer, "net_log", ["击杀 %s，得 %s。" % [kind, txt]])
 		_send_self(killer)
 
-	beasts.erase(idx)
+	# 顺序很重要：必须先广播、后删除！
+	#
+	# net_beast_died() 靠 beasts.get(idx) 拿到节点引用才能 queue_free()。
+	# 如果在这里先 beasts.erase(idx)，本机收到广播时取到的就是 null，
+	# queue_free() 永远不会执行 —— 妖兽会变成一个「血条空了、还在追你、
+	# 还打不死」的幽灵（因为它已经不在 beasts 里，_do_attack 再也瞄不到它）。
 	_srv_broadcast("net_beast_died", [idx])
 	respawn_queue.append({"kind": kind, "at": Time.get_ticks_msec() + 20000})
 

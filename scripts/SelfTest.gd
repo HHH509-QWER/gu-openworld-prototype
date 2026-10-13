@@ -220,6 +220,10 @@ func _test_beast_kill() -> void:
 	var n_before: int = game.beasts.size()
 	game._kill_beast(idx)
 	_check("妖兽被移除", game.beasts.size() == n_before - 1)
+	# 只检查字典是不够的！节点没被 queue_free 的话，它会变成一个
+	# 「血条空了、还在追你、还打不死」的幽灵。（这个 bug 真的发生过）
+	_check("妖兽节点已安排释放", beast.is_queued_for_deletion(),
+			"is_queued_for_deletion = %s" % beast.is_queued_for_deletion())
 	var all_ok := true
 	for k in drop.keys():
 		if int(d["items"].get(k, 0)) != int(before[k]) + int(drop[k]):
